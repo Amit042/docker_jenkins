@@ -5,7 +5,8 @@ pipeline {
   stages { 
     stage ("testing perpose") { 
       steps { 
-        sh "node --version" 
+        sh "node --version"  
+        sh "--rm=false"
       } 
     }  
   }  
