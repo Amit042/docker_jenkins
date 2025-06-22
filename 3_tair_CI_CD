@@ -4,18 +4,18 @@ pipeline {
      stage ("front end") {  
       agent {
        docker {image 'node:16-apline'}
-      }  
+       }  
       }
       steps { 
         sh "node --version" 
       }  
      stage ("backend") { 
-      agent {
+       agent {
        docker {image 'python:3.10'}  
-      }  
+       }  
       }
       steps { 
-         sh "python --version "
+         sh "python --version"
         }     
       stage ("database") {  
        agent {
@@ -27,4 +27,4 @@ pipeline {
      } 
     } 
    } 
-  } 
+ 
