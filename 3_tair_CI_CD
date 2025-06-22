@@ -1,24 +1,30 @@
 pipeline { 
   agent  none
   stages { 
-     stage ("front end") { 
+     stage ("front end") {  
+      agent {
        docker {image 'node:16-apline'}
-      } 
+      }  
+      }
       steps { 
         sh "node --version" 
       }  
      stage ("backend") { 
+      agent {
        docker {image 'python:3.10'}  
-      } 
+      }  
+      }
       steps { 
          sh "python --version "
         }     
-      stage ("database") { 
+      stage ("database") {  
+       agent {
       docker {image 'mysql:8'}  
       } 
       steps {  
         sh 'mysql --version || echo "mysql client not included in base image"'
-      } 
+     } 
+     } 
     } 
    } 
   } 
